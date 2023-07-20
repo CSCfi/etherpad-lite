@@ -7,7 +7,7 @@
 FROM node:lts-alpine
 LABEL maintainer="Etherpad team, https://github.com/ether/etherpad-lite"
 
-ARG TIMEZONE=
+ARG TIMEZONE="Europe/Helsinki"
 
 RUN \
   [ -z "${TIMEZONE}" ] || { \
@@ -23,7 +23,7 @@ ENV TIMEZONE=${TIMEZONE}
 #
 # EXAMPLE:
 #   ETHERPAD_PLUGINS="ep_codepad ep_author_neat"
-ARG ETHERPAD_PLUGINS=
+ARG ETHERPAD_PLUGINS="ep_adminpads2 ep_font_family ep_font_size ep_headings2 ep_font_color ep_aa_file_menu_toolbar ep_copy_paste_select_all"
 
 # Control whether abiword will be installed, enabling exports to DOC/PDF/ODT formats.
 # By default, it is not installed.
@@ -110,7 +110,7 @@ USER root
 RUN cd src && npm link
 USER etherpad
 
-HEALTHCHECK --interval=20s --timeout=3s CMD ["etherpad-healthcheck"]
+# HEALTHCHECK --interval=20s --timeout=3s CMD ["etherpad-healthcheck"]
 
 EXPOSE 9001
 CMD ["etherpad"]
