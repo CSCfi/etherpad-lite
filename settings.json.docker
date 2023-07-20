@@ -212,10 +212,6 @@
     "database": "${DB_NAME:undefined}",
     "user":     "${DB_USER:undefined}",
     "password": "${DB_PASS:undefined}",
-    "charset":  "${DB_CHARSET:undefined}",
-    "filename": "${DB_FILENAME:var/dirty.db}",
-    "collection": "${DB_COLLECTION:undefined}",
-    "url":      "${DB_URL:undefined}"
   },
 
   /*
