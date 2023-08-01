@@ -35,8 +35,8 @@ objects:
   spec:
     source:
       git:
-        ref: develop
-        uri: 'https://github.com/Socuz/etherpad-lite.git'
+        ref: main
+        uri: 'https://github.com/CSCfi/etherpad-lite.git'
       type: Git
     strategy:
       type: Source
