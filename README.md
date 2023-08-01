@@ -27,3 +27,6 @@ Run this command:
 ```sh 
 oc apply -f etherpad-openshift-template.yaml | oc delete -f -
 ```
+
+# Hedgedoc
+If you want an alternative on Rahti 3, checkout the template `Hedgedoc`
