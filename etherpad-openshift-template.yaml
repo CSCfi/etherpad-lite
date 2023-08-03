@@ -160,7 +160,7 @@ objects:
               secretKeyRef:
                 key: database-name
                 name: postgresql
-          image: image-registry.openshift-image-registry.svc:5000/openshift/postgresql:10-el8
+          image: image-registry.apps.2.rahti.csc.fi/openshift/postgresql:12-el8
           imagePullPolicy: IfNotPresent
           livenessProbe:
             exec:
@@ -193,11 +193,18 @@ objects:
             privileged: false
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /var/lib/psql/data
+            name: postgresql-data
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         schedulerName: default-scheduler
         securityContext: {}
         terminationGracePeriodSeconds: 30
+        volumes:
+        - name: postgresql-data
+          persistentVolumeClaim:
+            claimName: postgresql
     test: false
   status: {}
 
